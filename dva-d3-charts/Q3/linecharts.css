@@ -1,0 +1,43 @@
+@media print {
+    .pagebreak { page-break-before: always; } /* page-break-after works, as well */
+}
+
+.line_8_0 {
+    fill: none;
+    stroke: #900C3F;
+    stroke-width: 1;
+}
+
+.line_7_0 {
+    fill: none;
+    stroke: #C70039;
+    stroke-width: 1;
+}
+
+.line_6_0 {
+    fill: none;
+    stroke: #FF5733;
+    stroke-width: 1;
+}
+
+.line_5_0 {
+    fill: none;
+    stroke: #FFC300;
+    stroke-width: 1;
+}
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+.focus circle {
+    fill: none;
+    stroke: steelblue;
+}
+
+.legend {
+    padding: 5px;
+    font: 10px sans-serif;
+    background: yellow;
+    box-shadow: 2px 2px 1px #888;
+}
