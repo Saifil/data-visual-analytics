@@ -1,0 +1,3 @@
+We use nonlinear scales like Squareroot / Logscale when we need to plot multiple graphs on the same plot
+and there is a disparity in the magnitude of the data between these plots. Using nonlinear scale spreads out
+the plots, giving a chance to plots with smaller values to be displayed.
