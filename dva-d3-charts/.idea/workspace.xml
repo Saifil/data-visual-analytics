@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f136b388-7b2d-4acb-a128-458d45cc7203" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Q4/heatmap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Q4/heatmap.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Q4/heatmap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Q5/interactive.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Q5/interactive.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Q5/interactive.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Q3/explanation.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Q3/explanation.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -75,7 +73,8 @@
       <workItem from="1569676399104" duration="11504000" />
       <workItem from="1569697695313" duration="19329000" />
       <workItem from="1569768565672" duration="616000" />
-      <workItem from="1569769487085" duration="25020000" />
+      <workItem from="1569769487085" duration="35964000" />
+      <workItem from="1569891618231" duration="5644000" />
     </task>
     <servers />
   </component>
@@ -94,5 +93,17 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/Q5/interactive.js</url>
+          <line>47</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
