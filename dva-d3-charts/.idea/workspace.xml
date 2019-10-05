@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f136b388-7b2d-4acb-a128-458d45cc7203" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Q6/choropleth.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Q6/choropleth.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Q6/choropleth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Q7/analysis.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Q1/age-distribution copy.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Q1/age-distribution copy.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Q1/table.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Q1/table.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Q1/table.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Q2/graph.js" beforeDir="false" afterPath="$PROJECT_DIR$/Q2/graph.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Q3/linecharts.js" beforeDir="false" afterPath="$PROJECT_DIR$/Q3/linecharts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Q3/linecharts.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Q3/linecharts.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Q5/interactive.js" beforeDir="false" afterPath="$PROJECT_DIR$/Q5/interactive.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -92,7 +84,7 @@
       <workItem from="1570158245823" duration="204000" />
       <workItem from="1570211998824" duration="610000" />
       <workItem from="1570232813889" duration="1416000" />
-      <workItem from="1570299769906" duration="10843000" />
+      <workItem from="1570299769906" duration="13064000" />
     </task>
     <servers />
   </component>

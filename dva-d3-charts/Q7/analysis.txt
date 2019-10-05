@@ -1,0 +1,24 @@
+1. Ease to develop for developers
+Python: (matplotlib) Good documentation and community support. Easy to find tutorials.
+Tableau: Comparatively difficult. Lesser community support and must be learned from scratch. Plus side, easy-to-use GUI.
+D3: Good community support, smaller than python. Plenty of tutorials and uses JavaScript.
+
+2. Ease to maintain the visualization for developers
+Python: Can handle scalable data, but code must be altered if structure of data changes. Plus side, powerful debugging tools.
+Tableau: Easiest. Scales. GUI makes it possible to make quick changes.
+D3: Moderate. Scales. Code changes with structure of data.
+
+3. Usability of visualization developed for end users
+Python: (matplotlib) Less interactive than D3. Good for statistics.
+Tableau: Complex to make live interactions. Good for statistics but heavyweight as compared to Python.
+D3: Most interactive and visually powerful. Provides functions for dynamic graphics.
+
+4. Scalability of visualization to “large” datasets
+Python: Can handle large dataset processing. Dynamic change in scaling not as good as D3.
+Tableau: Better than Python. Scales visualization to dataset. Heavyweight process.
+D3: Best. Dynamic scaling to large dataset easy to implement, while meaningfully maintaining visualization.
+
+5. System requirements to run the visualization
+Python: OS. To run source file, must have libraries installed. Libraries are free.
+Tableau: Proprietary software. Limits end user interaction. Can be exported into PNG, PDF, GIF etc.
+D3: Requires Web Browser. Different support might be needed for different browsers.
