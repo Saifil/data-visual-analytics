@@ -78,13 +78,24 @@ function makePlot(data, svg, scaleType, title) {
     addGraphTitleAndAxes(svg, "Year", "Num of Earthquakes", title);
 
     if (scaleType) { // add the symbols
-        var meanEstDeaths = d3.mean(data, function (d) {
-            return d["Estimated Deaths"];
-        });
-        addSymbol(svg, data, xScale, yScale, meanEstDeaths, "5_5.9");
-        addSymbol(svg, data, xScale, yScale, meanEstDeaths, "6_6.9");
-        addSymbol(svg, data, xScale, yScale, meanEstDeaths, "7_7.9");
-        addSymbol(svg, data, xScale, yScale, meanEstDeaths, "8.0+");
+        var zScale = d3.scalePow() // radius size
+            .exponent(0.5)
+            .domain([d3.min(data, function (d) { return d["Estimated Deaths"];}),
+            d3.max(data, function (d) { return d["Estimated Deaths"];})])
+            .range([5, 15]);
+
+        addSymbol(svg, data, xScale, yScale, zScale,"5_5.9");
+        addSymbol(svg, data, xScale, yScale, zScale, "6_6.9");
+        addSymbol(svg, data, xScale, yScale, zScale, "7_7.9");
+        addSymbol(svg, data, xScale, yScale, zScale, "8.0+");
+
+        // var meanEstDeaths = d3.mean(data, function (d) {
+        //     return d["Estimated Deaths"];
+        // });
+        // addSymbol(svg, data, xScale, yScale, meanEstDeaths, "5_5.9");
+        // addSymbol(svg, data, xScale, yScale, meanEstDeaths, "6_6.9");
+        // addSymbol(svg, data, xScale, yScale, meanEstDeaths, "7_7.9");
+        // addSymbol(svg, data, xScale, yScale, meanEstDeaths, "8.0+");
     }
 
     // break page (add the new graph on next page)
@@ -93,16 +104,27 @@ function makePlot(data, svg, scaleType, title) {
         .attr("class", "pagebreak");
 }
 
-function addSymbol(svg, data, xScale, yScale, meanEstDeaths, magnitude) {
+// function addSymbol(svg, data, xScale, yScale, meanEstDeaths, magnitude) {
+//     svg.selectAll(".dot")
+//         .data(data)
+//         .enter().append("circle") // Uses the enter().append() method
+//         .attr("cx", function(d) { return xScale(d.year) })
+//         .attr("cy", function(d) { return yScale(d[magnitude]) })
+//         .attr("r", function (d) {
+//             var r = 15 * d["Estimated Deaths"] / meanEstDeaths;
+//             return (r < 5)? 5 + 2 * r / 5 : ((r > 15)? Math.min(10 + r / 15, 20) : r);
+//         })
+//         .style("fill", legentSet[magnitude])
+//         .style("stroke", "#fff");
+// }
+
+function addSymbol(svg, data, xScale, yScale, zScale, magnitude) {
     svg.selectAll(".dot")
         .data(data)
         .enter().append("circle") // Uses the enter().append() method
         .attr("cx", function(d) { return xScale(d.year) })
         .attr("cy", function(d) { return yScale(d[magnitude]) })
-        .attr("r", function (d) {
-            var r = 15 * d["Estimated Deaths"] / meanEstDeaths;
-            return (r < 5)? 5 + 2 * r / 5 : ((r > 15)? Math.min(10 + r / 15, 20) : r);
-        })
+        .attr("r", function (d) { return zScale(d["Estimated Deaths"])})
         .style("fill", legentSet[magnitude])
         .style("stroke", "#fff");
 }

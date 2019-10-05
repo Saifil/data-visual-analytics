@@ -228,8 +228,5 @@ d3.dsv(",", "state-year-earthquakes.csv").
             d.count = +d.count;
         });
         dataset = data;
-        // console.log(aggregateDate(data));
         makePlot(aggregateDate(data));
-        // makeBarPlot("West", "2011");
-    // console.log(filteredData);
 });

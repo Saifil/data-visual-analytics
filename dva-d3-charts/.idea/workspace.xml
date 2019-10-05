@@ -2,10 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f136b388-7b2d-4acb-a128-458d45cc7203" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Q5/interactive.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Q5/interactive.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Q5/interactive.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Q6/choropleth.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Q6/choropleth.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Q6/choropleth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Q1/age-distribution copy.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Q1/age-distribution copy.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Q1/table.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Q1/table.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Q1/table.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Q2/graph.js" beforeDir="false" afterPath="$PROJECT_DIR$/Q2/graph.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Q3/linecharts.js" beforeDir="false" afterPath="$PROJECT_DIR$/Q3/linecharts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Q3/linecharts.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Q3/linecharts.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Q5/interactive.js" beforeDir="false" afterPath="$PROJECT_DIR$/Q5/interactive.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,9 +23,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -31,7 +38,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Q6" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -42,6 +49,9 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Q6" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -74,7 +84,15 @@
       <workItem from="1569697695313" duration="19329000" />
       <workItem from="1569768565672" duration="616000" />
       <workItem from="1569769487085" duration="35964000" />
-      <workItem from="1569891618231" duration="5644000" />
+      <workItem from="1569891618231" duration="5957000" />
+      <workItem from="1569944293222" duration="1349000" />
+      <workItem from="1569983915993" duration="1028000" />
+      <workItem from="1570069924362" duration="1227000" />
+      <workItem from="1570111316847" duration="17891000" />
+      <workItem from="1570158245823" duration="204000" />
+      <workItem from="1570211998824" duration="610000" />
+      <workItem from="1570232813889" duration="1416000" />
+      <workItem from="1570299769906" duration="10843000" />
     </task>
     <servers />
   </component>
@@ -93,17 +111,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/Q5/interactive.js</url>
-          <line>47</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

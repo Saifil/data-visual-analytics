@@ -181,37 +181,57 @@ var path = svg.append("g") // edges
 .append("path")
 .attr("class", function(d) { return "link" + d.value; }); // modified for strokes
 
+// // define the nodes
+// var node = svg.selectAll(".node")
+//     .data(force.nodes())
+//     .enter().append("g")
+//     .attr("class", "node")
+//     .call(d3.drag()
+//       .on("start", dragstarted)
+//       .on("drag", dragged)
+//       .on("end", dragended)
+//     );
+
+
 // define the nodes
 var node = svg.selectAll(".node")
     .data(force.nodes())
     .enter().append("g")
-    .attr("class", "node")
+    .attr("class", function (d) {
+      var baseWeight = 2;
+      d.weight =  baseWeight + 2.0 * links.filter(function(l) {
+        return l.source.index === d.index || l.target.index === d.index
+      }).length;
+      if (d.weight > 15) d.weight = 15;
+      return "node";
+    })
     .call(d3.drag()
       .on("start", dragstarted)
       .on("drag", dragged)
       .on("end", dragended)
     );
 
+// add node colors
+zScale = d3.scaleLinear()
+    .domain(d3.extent(force.nodes(), function (d) { return d.weight; }))
+    .range(["#B8F2FF", "#0839C2"]);
+
 // add the nodes
 node.append("circle")
     .attr("r", function (d) { // node size
       d.fixed = false;
-      var baseWeight = 2;
-      d.weight =  baseWeight + 2.0 * links.filter(function(l) {
-        return l.source.index === d.index || l.target.index === d.index
-      }).length;
-      if (d.weight > 15) d.weight = 15;
       return d.weight;
     })
-    .attr("fill", function (d) { // change the color of the node by weight
-      // var r = 35, g = 74, b = 172;
-      var r = 24, g = 51, b = 120; //base color for weight 15
-      r = (r * 15 / d.weight > 255) ? 255 :r * 15 / d.weight;
-      g = (g * 15 / d.weight > 255) ? 255 :g * 15 / d.weight;
-      b = (b * 15 / d.weight > 255) ? 255 :b * 15 / d.weight;
-      d.defaultColor = "rgb("+ r + "," + g + "," +  b + ")";
-      return d.defaultColor;
-    })
+    // .attr("fill", function (d) { // change the color of the node by weight
+    //   // var r = 35, g = 74, b = 172;
+    //   var r = 24, g = 51, b = 120; //base color for weight 15
+    //   r = (r * 15 / d.weight > 255) ? 255 :r * 15 / d.weight;
+    //   g = (g * 15 / d.weight > 255) ? 255 :g * 15 / d.weight;
+    //   b = (b * 15 / d.weight > 255) ? 255 :b * 15 / d.weight;
+    //   d.defaultColor = "rgb("+ r + "," + g + "," +  b + ")";
+    //   return d.defaultColor;
+    // })
+    .attr("fill", function (d) { return zScale(d.weight); })
     .on("dblclick", function (d) { // added pin feature
       if (d.fixed === true) {
         d.fixed = false;
