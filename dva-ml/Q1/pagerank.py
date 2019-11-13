@@ -18,10 +18,10 @@ of each node, we will iterate over dataset multiple times and update the probabi
 equation mentioned in the question.
 """
 def author():                                                                                             
-        return 'sroutray3' # replace sroutray3 with your Georgia Tech username.                                                                                             
+        return 'smomin34'
                                                                                               
 def gtid():                                                                                               
-    return 987654321 # replace with your GT ID number      
+    return 903464299 # replace with your GT ID number
 
 class PageRank:
     def __init__(self, edge_file):
