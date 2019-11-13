@@ -38,6 +38,7 @@ class PageRank:
                     yield int(val[0]), int(val[1])
 
     def get_max_node_id(self):
+        # print(self.max_node_id)
         return self.max_node_id
     '''
     Step1: Calculate the out-degree of each node and maximum node_id of the graph.
@@ -45,12 +46,14 @@ class PageRank:
     '''
     def calculate_node_degree(self):
         for source,target in self.read_edge_file(self.edge_file):
+            if source > self.max_node_id: self.max_node_id = source
+            if target > self.max_node_id: self.max_node_id = target
 
-### Implement your code here
-#############################################
-
-            pass
-#############################################
+            degree = self.node_degree.get(source)
+            if degree is not None:
+                self.node_degree[source] += 1
+            else:
+                self.node_degree[source] = 1
 
         print("Calculated node degrees ")
         print("Max node id : {}".format(self.max_node_id,))
@@ -73,16 +76,16 @@ class PageRank:
         for it in range(iterations):
             
             new_scores = [0.0] * (self.max_node_id + 1)
+            # Calculate the out-degree summation part
             for source, target in self.read_edge_file(self.edge_file):
+                out_degree = self.node_degree[source]
+                new_scores[target] += damping_factor * scores[source] / out_degree
 
-### Implement your code here
-#############################################
+            for target in range(len(scores)):
+                scores[target] = (1 - damping_factor) * node_weights[target] \
+                                 + new_scores[target]
 
-                pass
-#############################################
-
-        
-        print ("Completed {0}/{1} iterations. {2} seconds elapsed." \
+        print("Completed {0}/{1} iterations. {2} seconds elapsed." \
             .format(it + 1, iterations, time.time() - start_time))
 
         return scores
