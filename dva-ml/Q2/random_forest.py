@@ -51,10 +51,15 @@ class RandomForest(object):
         #       from the original dataset XX.
         # Note that you would also need to record the corresponding class labels
         # for the sampled records for training purposes.
+        XX = np.asarray(XX)
+        sampled_XX = XX[np.random.randint(XX.shape[0], size=n), :]
+        # print(sampled_XX.shape)
 
-        samples = []  # sampled dataset
-        labels = []  # class labels for the sampled records
-        return (samples, labels)
+        samples = sampled_XX[:, :-1]  # sampled dataset
+        labels = sampled_XX[:, -1]  # class labels for the sampled records
+
+        # print(samples.shape, labels.shape)
+        return (samples.tolist(), labels.tolist())
 
     def bootstrapping(self, XX):
         # Initializing the bootstap datasets for each tree
@@ -66,7 +71,8 @@ class RandomForest(object):
     def fitting(self):
         # TODO: Train `num_trees` decision trees using the bootstraps datasets
         # and labels by calling the learn function from your DecisionTree class.
-        pass
+        for i in range(self.num_trees):
+            self.decision_trees[i].learn(self.bootstraps_datasets[i], self.bootstraps_labels[i])
 
     def voting(self, X):
         y = []
@@ -91,15 +97,28 @@ class RandomForest(object):
                 # TODO: Special case
                 #  Handle the case where the record is not an out-of-bag sample
                 #  for any of the trees.
-                pass
+                # if in bag for all, take majority votes anyways
+                votes_r = []
+                for i in range(len(self.bootstraps_datasets)):
+                    OOB_tree = self.decision_trees[i]
+                    effective_vote = OOB_tree.classify(record)
+                    votes_r.append(effective_vote)
+
+                counts_r = np.bincount(votes)
+                if len(counts_r) != 0:  # Sanity check
+                    y = np.append(y, np.argmax(counts))
             else:
                 y = np.append(y, np.argmax(counts))
 
         return y
 
+import time
 
 # DO NOT change the main function apart from the forest_size parameter!
 def main():
+    # To calculate the runtime of the program
+    start_time = time.time()
+
     X = list()
     y = list()
     XX = list()  # Contains data features and data labels
@@ -123,7 +142,7 @@ def main():
 
     # TODO: Initialize according to your implementation
     # VERY IMPORTANT: Minimum forest_size should be 10
-    forest_size = 10
+    forest_size = 12
 
     # Initializing a random forest.
     randomForest = RandomForest(forest_size)
@@ -148,6 +167,9 @@ def main():
 
     print("accuracy: %.4f" % accuracy)
     print("OOB estimate: %.4f" % (1 - accuracy))
+
+    exec_time = round((time.time() - start_time))
+    print(f"\n--Program run time: {int(exec_time / 60)} minutes {int(exec_time % 60)} seconds")
 
 
 if __name__ == "__main__":
