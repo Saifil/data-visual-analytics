@@ -1,0 +1,5 @@
+1. Random forest is a collection of decision trees and can help in reducing the overfitting (since we take into account the decisions of multiple trees). It takes into account multiple trees, thus, helps reduce the bias of any single decision tree, resulting in a more consistent model.
+
+2. 165 seconds.
+
+3. 97.54%

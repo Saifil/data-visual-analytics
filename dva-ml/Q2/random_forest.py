@@ -45,21 +45,17 @@ class RandomForest(object):
         self.decision_trees = [DecisionTree() for i in range(num_trees)]
 
     def _bootstrapping(self, XX, n):
-        # Reference: https://en.wikipedia.org/wiki/Bootstrapping_(statistics)
-        #
-        # TODO: Create a sample dataset of size n by sampling with replacement
-        #       from the original dataset XX.
-        # Note that you would also need to record the corresponding class labels
-        # for the sampled records for training purposes.
-        XX = np.asarray(XX)
-        sampled_XX = XX[np.random.randint(XX.shape[0], size=n), :]
-        # print(sampled_XX.shape)
+        # Used Numpy random,randint function to get a random value of row index
+        # Did this for n number of times to get n rows
+        # appended the row and corresponding y value in samples, labels respectively
+        samples = []
+        labels = []
+        for i in range(n):
+            random = np.random.randint(len(XX))
+            samples.append(XX[random][:-1])
+            labels.append(XX[random][-1])
 
-        samples = sampled_XX[:, :-1]  # sampled dataset
-        labels = sampled_XX[:, -1]  # class labels for the sampled records
-
-        # print(samples.shape, labels.shape)
-        return (samples.tolist(), labels.tolist())
+        return samples, labels
 
     def bootstrapping(self, XX):
         # Initializing the bootstap datasets for each tree
@@ -69,8 +65,7 @@ class RandomForest(object):
             self.bootstraps_labels.append(data_label)
 
     def fitting(self):
-        # TODO: Train `num_trees` decision trees using the bootstraps datasets
-        # and labels by calling the learn function from your DecisionTree class.
+        # Called for each decision tree and fitted the respective data
         for i in range(self.num_trees):
             self.decision_trees[i].learn(self.bootstraps_datasets[i], self.bootstraps_labels[i])
 
@@ -94,30 +89,22 @@ class RandomForest(object):
             counts = np.bincount(votes)
 
             if len(counts) == 0:
-                # TODO: Special case
-                #  Handle the case where the record is not an out-of-bag sample
-                #  for any of the trees.
-                # if in bag for all, take majority votes anyways
-                votes_r = []
-                for i in range(len(self.bootstraps_datasets)):
-                    OOB_tree = self.decision_trees[i]
-                    effective_vote = OOB_tree.classify(record)
-                    votes_r.append(effective_vote)
-
-                counts_r = np.bincount(votes)
-                if len(counts_r) != 0:  # Sanity check
-                    y = np.append(y, np.argmax(counts))
+                # If not in any out-of-bag sample
+                # Select a random decision tree out of the forest
+                # for that decision tree, return the predicted value of the record
+                idx = np.random.randint(len(self.bootstraps_datasets))
+                OOB_tree = self.decision_trees[idx]
+                effective_vote = OOB_tree.classify(record)
+                y = np.append(y, effective_vote)
             else:
                 y = np.append(y, np.argmax(counts))
 
         return y
 
 import time
-
 # DO NOT change the main function apart from the forest_size parameter!
 def main():
-    # To calculate the runtime of the program
-    start_time = time.time()
+    start = time.time()
 
     X = list()
     y = list()
@@ -142,7 +129,8 @@ def main():
 
     # TODO: Initialize according to your implementation
     # VERY IMPORTANT: Minimum forest_size should be 10
-    forest_size = 12
+    # Size of forest selected as 10 according to the time vs accuracy increase trade-of
+    forest_size = 10
 
     # Initializing a random forest.
     randomForest = RandomForest(forest_size)
@@ -168,9 +156,8 @@ def main():
     print("accuracy: %.4f" % accuracy)
     print("OOB estimate: %.4f" % (1 - accuracy))
 
-    exec_time = round((time.time() - start_time))
-    print(f"\n--Program run time: {int(exec_time / 60)} minutes {int(exec_time % 60)} seconds")
-
+    # ttaken = time.time() - start
+    print( time.time() - start)
 
 if __name__ == "__main__":
     main()
